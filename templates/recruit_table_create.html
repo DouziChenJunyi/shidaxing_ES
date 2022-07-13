@@ -1,0 +1,10 @@
+{% extends 'module_createTable_modifyItem_recruit.html' %}
+
+{% block title %}兼职信息-新建{% endblock %}
+{% block operation %}兼职信息 〉新建{% endblock %}
+
+{% block back %}<a href="{{ url_for('recruit_info_current') }}">〈 返回</a>{% endblock %}
+
+{% block action %}
+    action="{{ url_for('recruit_table_create') }}"
+{% endblock %}

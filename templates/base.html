@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="page-frame">
+    <div class="page-top">
+       <div class="system-title ">
+            <div class="avatar"></div>
+            <span class="namination">师大行</span>
+            <span class="manageSystem">管理系统</span>
+        </div>
+        <nav class="management" style="height: 20px;line-height: 20px;margin-top: -15px">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    {% if user %}
+                        <li ><a href="#"><span class="user1">{{ user.username }}</span></a></li>
+                        <li style="margin-left: -15px"><a href="{{ url_for('logout') }}"><span class="quit1">退出</span></a></li>
+                        <li class="dropdown" style="margin-top: 3px">
+                            <a href="#" class="dropdown-toggle set_info" data-toggle="dropdown">
+                                修改
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('modify_username',user_id=user.id) }}">更换用户名</a></li>
+                                <li><a href="{{ url_for('modify_password',user_id=user.id) }}">更换密码</a></li>
+                                {% if user.username == boss.username %}
+                                    <li><a href="{{ url_for('modify_signal',user_id=user.id) }}">更换口令</a></li>
+                                    <li><a href="{{ url_for('_show_managers',boss_id=boss.id) }}">管理员信息</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li style="padding: 0px"><a href="{{ url_for('login') }}"><span class="user1">登录</span></a></li>
+                        <li style="margin-left: -15px"><a href="{{ url_for('register') }}"><span class="quit1">注册</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="page-bottom">
+        <div class="bottom-left">
+            <div class="classify tenement">租房管理</div>
+            <ul  class="nav nav-tabs nav-stacked" >
+                <li {% block li1%}{% endblock %}><a href="{{ url_for('link_tenement_current') }}">租房信息</a></li>
+                <li {% block li2%}{% endblock %}><a href="{{ url_for('link_tenement_history') }}">历史信息</a></li>
+            </ul>
+            <div class="classify part-time-job">兼职管理</div>
+            <ul class="nav nav-tabs nav-stacked" >
+                <li {% block li3%}{% endblock %}><a href="{{  url_for('link_recruit_current')}}">招聘信息</a></li>
+                <li {% block li4%}{% endblock %}><a href="{{  url_for('link_recruit_history')}}">历史招聘</a></li>
+            </ul>
+        </div>
+        <div class="page-main">
+            <div class="return">
+                <span>{% block back %}{% endblock %}</span>
+            </div>
+            <div class="main-title">
+                <span class="return">{% block operation %}{% endblock %}</span>
+            </div>
+            <div class="main-info">
+                <hr class="main-title-hr">
+                <div class="database_table">
+                    {% block info_form %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

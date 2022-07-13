@@ -1,0 +1,45 @@
+{% extends 'module_createTable_modifyItem_tenement.html' %}
+
+{% block title %}租房信息-新建{% endblock %}
+{% block operation %}租房信息 〉新建{% endblock %}
+
+{% block action %}
+    action="{{ url_for('tenement_table_create') }}"
+{% endblock %}
+
+{% block back %}<a href="{{ url_for('tenement_select_history') }}">〈 返回</a>{% endblock %}
+
+
+{% block flat_name_placeholder %}
+    placeholder="请输入名称"
+{% endblock %}
+{% block flat_id_placeholder %}
+    placeholder="百度地图ID"
+{% endblock %}
+{% block room_count_placeholder %}
+    placeholder="输入"
+{% endblock %}
+{% block bathroom_count_placeholder %}
+    placeholder="输入"
+{% endblock %}
+{% block kitchen_count_placeholder %}
+    placeholder="输入"
+{% endblock %}
+{% block livingroom_count_placeholder %}
+    placeholder="输入"
+{% endblock %}
+{% block deposit_placeholder %}
+    placeholder="请输入价格"
+{% endblock %}
+{% block telephone1_placeholder %}
+    placeholder="联系电话1"
+{% endblock %}
+{% block telephone2_placeholder %}
+    placeholder="联系电话2"
+{% endblock %}
+{% block address_placeholder %}
+    placeholder="请输入居住地址"
+{% endblock %}
+{% block remark_placeholder %}
+    placeholder="请输入简介内容，不超过300字"
+{% endblock %}

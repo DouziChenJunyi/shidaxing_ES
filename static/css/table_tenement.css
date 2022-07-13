@@ -1,0 +1,60 @@
+.tenement_eq_items label{
+    height: 20px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 60px;
+    justify-content: space-between;
+}
+.tenement_eq_items  input{
+    display: inline-block;
+}
+.tenement_eq_items span{
+    display: inline-block;
+    width: 50px;
+}
+
+
+.equipment_count input{
+    display: inline-block;
+    width: 50px;
+}
+#deposit{
+    display: inline-block;
+    width: 100px;
+}
+.telephone input{
+    width: 346px;
+}
+.photo{
+    height: 80px;
+}
+.photo button{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url('../images/add_photoes.png') no-repeat center;
+    background-size: 30px 30px;
+    border: 0px;
+}
+.tenement_eq_items select{
+    display: inline-block;
+    width: 60px;
+    height: 22px;
+    line-height: 22px;
+    margin: 0px 20px 0px 5px;
+}
+textarea{
+    resize: none;
+    width: 600px;
+}
+input[disabled],input:disabled,input.disabled{
+    color: #333;
+    -webkit-text-fill-color:#333;
+    opacity: 1;
+}
+textarea[disabled],textarea:disabled,textarea.disabled{
+    color: #333;
+    -webkit-text-fill-color:#333;
+    opacity: 1;
+}

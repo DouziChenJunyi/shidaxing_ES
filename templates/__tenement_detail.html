@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scale=no">
+    <title>租房信息</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/__tenement_detail.css') }}">
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width/18 + 'px';
+        })();
+    </script>
+</head>
+<body>
+    <div class="post" style="background: url('{{ url_for("static",filename="upload_images/"+tenement.image1) }}') no-repeat center;background-size: 100% 10rem">
+{#        <a href="#" class="return">返回列表</a>#}
+        <a href="{{ url_for('__tenement_photoes',tenement_id=tenement.id) }}" class="more">更多图片</a>
+    </div>
+    <div class="main">
+        <div class="header">
+            <div class="name-eq">
+                <div class="name">{{ tenement.flat_name }}</div>
+                <div class="standard">
+                    {{ tenement.room_count }}室{{ tenement.bathroom_count }}卫
+                    {{ tenement.livingroom_count }}厅{{ tenement.kitchen_count }}厨
+                </div>
+            </div>
+            <div class="price-deposit">
+                <div class="price">￥{{ tenement.price }}</div>
+                <div class="deposit">租金{{ tenement.deposit }}元</div>
+            </div>
+        </div>
+        <div class="position">
+            <span class="dingwei-avatar"></span>
+            <div class="dingwei">{{ tenement.address }}</div>
+            <div class="daohang">
+                <a href={{ tenement.flat_id }}>地图/导航 </a>››
+            </div>
+        </div>
+        <div class="tel-box">
+            <div class="tel">{{ tenement.telephone1 }}</div>
+            {% if tenement.telephone2 %}
+                 </span><div class="tel tel2">{{ tenement.telephone2 }}</div>
+            {% endif %}
+        </div>
+        {% if tenement.remark %}
+            <div class="profile-box">
+                <div class="profile">备注： {{ tenement.remark }}</div>
+            </div>
+        {% endif %}
+        <div class="equipment">
+            <div class="bed">
+                <span>床</span>
+            </div>
+            <div class="cupboard">
+                <span>衣橱</span>
+            </div>
+            <div class="desk">
+                <span>桌椅</span>
+            </div>
+            <div class="bed-desk">
+                <span>床头柜</span>
+            </div>
+            <div class="air-conditioning">
+                <span>空调</span>
+            </div>
+            <div class="TV">
+                <span>电视</span>
+            </div>
+            <div class="water-heater">
+                <span>热水器</span>
+            </div>
+            <div class="network">
+                <span>网络</span>
+            </div>
+            <div class="bathroom">
+                <span>卫生间</span>
+            </div>
+            {% if tenement.kitchen == "True" %}
+                <div class="kitchen">
+                    <span>厨房</span>
+                </div>
+            {% else %}
+                <div class="none-kitchen">
+                    <span>厨房</span>
+                </div>
+            {% endif %}
+            {% if tenement.window == "True" %}
+                <div class="window">
+                    <span>落地窗</span>
+                </div>
+            {% else %}
+                <div class="none-window">
+                    <span>落地窗</span>
+                </div>
+            {% endif %}
+            {% if tenement.lift == "True" %}
+                <div class="lift">
+                    <span>电梯</span>
+                </div>
+            {% else %}
+                <div class="none-lift">
+                    <span>电梯</span>
+                </div>
+            {% endif %}
+        </div>
+    <div class="bottom"></div>
+    </div>
+
+</body>
+</html>

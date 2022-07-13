@@ -1,0 +1,50 @@
+{% extends 'recruit_select_history.html' %}
+
+{% block title %}历史招聘信息{% endblock %}
+{% block operation %}历史招聘信息{% endblock %}
+
+{% block li4 %}class="active"{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recruit_info_module.css') }}">
+{% endblock %}
+
+
+{% block delete_or_move_in %}移入{% endblock %}
+
+{% block table %}
+    <table class="table table-striped">
+        <caption>兼职信息——已存档</caption>
+        <thead>
+            <tr>
+                <th>招聘单位</th>
+                <th>联系方式</th>
+                <th>类别</th>
+                <th>发布时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recruit in recruits %}
+                <tr>
+                    <td><a href="{{ url_for('recruit_item_check',recruit_id=recruit.id ) }}">{{ recruit.unit }}</a></td>
+                    <td>{{ recruit.contact }}</td>
+                    <td>{{ recruit.category }}</td>
+                    <td>{{ recruit.create_time }}</td>
+                    <td>
+                        <span><a href="{{ url_for('recruit_item_modify',recruit_id=recruit.id) }}" class="modify">修改</a></span>
+                        <span><a href="{{ url_for('recruit_item_moveIn',recruit_id=recruit.id ) }}" class="move_out1" onclick="alert('项目已成功移入当前租房信息中！')">移入</a></span>
+                        <span><a href="{{ url_for('recruit_item_delete',recruit_id=recruit.id  ) }}" class="delete1"
+                                 onclick="{if(confirm('确定删除吗?请谨慎处理!')){this.document.formname.submit();return true;}return false;}">删除</a></span>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center">
+        {% import "recruit_macros_history.html" as macros %}
+        <div class="pagination" style="margin: 10px">
+            {{ macros.pagination_widget(pagination,'.index') }}
+        </div>
+    </div>
+{% endblock %}

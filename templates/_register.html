@@ -1,0 +1,29 @@
+{% extends '_window.html' %}
+{% block title %}注册{% endblock %}
+{% block operation %}注册{% endblock %}
+{% block window_title %}
+   <h1>管理员注册</h1>
+{% endblock %}
+{% block window_content %}
+     <form action="{{ url_for('register') }}" method="post">
+        <h1>管理员注册</h1>
+        <div>
+            <input type="text" placeholder="账号" required="required" name="username" maxlength="20"/>
+        </div>
+        <div>
+            <input type="password" placeholder="口令" required="required"  name="signal" maxlength="20" />
+        </div>
+        <div>
+            <input type="password" placeholder="密码" required="required"  name="password1" maxlength="50"/>
+        </div>
+        <div>
+            <input type="password" placeholder="确认密码" required="required" name="password2" maxlength="50" />
+        </div>
+        <div style="width: 300px">
+            <!-- <input type="submit" value="Log in" /> -->
+            <input type="submit" value="注册" onclick="alert('注册信息上传中')" class="btn btn-primary" id="js-btn-login" style="display: inline-block;margin-left:
+120px;height: 40px"/>
+            <!-- <a href="#">Register</a> -->
+        </div>
+    </form><!-- form -->
+{% endblock %}

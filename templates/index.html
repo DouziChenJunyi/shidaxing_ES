@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login_register.css') }}">
+{% endblock %}
+
+{% block title %}首页{% endblock %}
+{% block operation %}欢迎使用 师大行 管理系统{% endblock %}
+
+{% block info_form %}
+    <div class="container">
+        <section id="content">
+            <form action="{{ url_for('index')}}" method="post">
+                <h1>管理员登录</h1>
+                <div>
+                    <input type="text" placeholder="账号" name="username" />
+                </div>
+                <div>
+                    <input type="password" placeholder="密码"  name="password" />
+                </div>
+                 <div class="">
+                    <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
+                 </div>
+                <div>
+                    <!-- <input type="submit" value="Log in" /> -->
+                    <input type="submit" value="登录" class="btn btn-primary" id="js-btn-login"/>
+                    <a href="#">忘记密码?</a>
+                    <!-- <a href="#">Register</a> -->
+                </div>
+            </form><!-- form -->
+        </section><!-- content -->
+    </div>
+{% endblock %}

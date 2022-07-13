@@ -1,0 +1,224 @@
+body{
+    margin:0;
+
+}
+
+body *{
+    -webkit-text-size-adjust: 100%;
+    -webkit-user-select: none;
+}
+a, button, input{
+    -webkit-appearance: none;
+    border-radius: 0px;
+}
+
+input{
+    outline: none;
+    vertical-align: middle;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+image{
+    vertical-align: middle;
+}
+h3,h4,p{
+    margin: 0px;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+
+
+.main{
+   padding: 0px 0.35rem;
+}
+.post{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100% ;
+    height: 8rem;
+}
+.return{
+    display: inline-block;
+    height: 0.9rem;
+    text-decoration: none;
+    font-size: 0.68rem;
+    padding: 0.1rem;
+    margin-top: 0.05rem;
+    border: 0.05rem solid #00AACE;
+}
+.return:link,.return:visited{
+    color: #00AACE;
+}
+.more{
+    display: inline-block;
+    height: 0.9rem;
+    text-decoration: none;
+    font-size: 0.7rem;
+    padding: 0.2rem;
+    margin-top: 6.52rem;
+    border: 0.05rem solid #00AACE;
+}
+.more:link, .more:visited{
+    color:#00AACE;
+}
+
+
+.header,.position,.tel-box,.profile-box,.equipment{
+    border-bottom: solid 1px #DCDDDF;
+}
+.name-eq,.price-deposit,.position,.tel-box,.profile-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem;
+    /*height: 1rem;*/
+    line-height: 1rem;
+}
+.name{
+    font-weight: bold;
+}
+.standard{
+    line-height:0.69rem;
+    font-size: 0.69rem;
+    padding: 0.2rem;
+    color: #00AACE;
+    border: solid 0.002rem #00AACE;
+}
+
+.deposit{
+    width: 3.5rem;
+    height: 0.69rem;
+    line-height:0.69rem;
+    font-size: 0.66rem;
+    color: #00AACE;
+    padding: 0.2rem;
+}
+.dingwei-avatar{
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    background: url("../images/location.png") no-repeat left 0.1rem;
+    background-size: 0.6rem,0.6rem;
+}
+.dingwei{
+    width: 80%;
+    font-size: 0.75rem;
+}
+.daohang{
+    width: 4rem;
+    font-size: 0.65rem;
+}
+.daohang a:visited, .daohang a:link{
+    color: #00AACE;
+}
+.tel{
+    width: 50%;
+    background: url("../images/telephone.png") no-repeat left;
+    background-size: 0.6rem,0.6rem;
+    text-indent: 0.7rem;
+    font-size: 0.78rem;
+}
+.tel2{
+    width: 39%;
+}
+.profile{
+    width: 100%;
+    background: url("../images/profile.png") no-repeat left;
+    background-size: 0.6rem,0.6rem;
+    text-indent: 0.7rem;
+    font-size: 0.8rem;
+}
+.equipment{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+}
+.equipment div{
+    width: 20%;
+    height: 1.2rem;
+    font-size: 0.8rem;
+    padding-top: 1.8rem;
+}
+.equipment span{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7rem;
+    color: dimgrey;
+}
+.bed{
+    background: url("../images/bed.png") no-repeat 1rem 0.3rem;
+    background-size: 1.4rem,4rem;
+}
+.cupboard{
+    background: url("../images/cupboard.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.desk{
+    background: url("../images/desk.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.bed-desk{
+    background: url("../images/bed-desk.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.air-conditioning{
+    background: url("../images/air-conditioning.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.TV{
+    background: url("../images/TV.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.water-heater{
+    background: url("../images/water-heater.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.network{
+    background: url("../images/network.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.bathroom{
+    background: url("../images/bathroom.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.kitchen{
+    background: url("../images/kitchen.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.none-kitchen{
+    background: url("../images/none-kitchen.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.window{
+    background: url("../images/window.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.none-window{
+    background: url("../images/none-window.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.lift{
+    background: url("../images/lift.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+.none-lift{
+    background: url("../images/none-lift.png") no-repeat top;
+    background-size: 1.4rem,4rem;
+}
+
+.bottom{
+    width: 100%;
+    height: 2rem;
+    background: url("../images/bootom.png") no-repeat center;
+    background-size: 4rem,4rem;
+}

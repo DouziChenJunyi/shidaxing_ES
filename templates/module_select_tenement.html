@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/module_check.css') }}">
+    {% block link %}{% endblock %}
+{% endblock %}
+
+{% block back %}{% endblock%}
+{% block operation %}{% endblock%}
+
+
+{% block info_form %}
+    <div class="information-top">
+        <div class="check">
+            <form {% block action %}{% endblock %} method="post">
+                 <div class="select_price">
+                     <span>价格区间</span>
+                     <select name="price" >
+                        <option value="all">不限</option>
+                        <option value="300-450">300-450</option>
+                        <option value="450-700">450-700</option>
+                        <option value="700+">700+</option>
+                     </select>
+                 </div>
+                 <div class="select_name">
+                     <span>租房名称</span>
+                     <input type="text" name="name">
+                 </div>
+                 <div class="check_btn"><button class="btn_check">查询</button></div>
+            </form>
+        </div>
+        <div class="btn_add_n_delete">
+            {% block btn_add %}{% endblock %}
+        </div>
+    </div>
+    <div class="information">
+        {% block table %}{%  endblock %}
+    </div>
+
+{% endblock %}

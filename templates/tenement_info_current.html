@@ -1,0 +1,47 @@
+{% extends 'tenement_select_current.html' %}
+
+{% block title %}租房信息{% endblock %}
+{% block operation %}租房信息{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tenement_info_current.css') }}">
+{% endblock %}
+
+{% block li1 %}class="active"{% endblock %}
+
+{% block btn_add %}<a href="{{ url_for('tenement_table_create') }}"><button class="btn_add">新建</button></a>{% endblock %}
+
+{% block delete_or_move_in %}删除{% endblock %}
+
+{% block table %}
+    <table class="table table-striped">
+        <caption>租房信息——已发布</caption>
+        <thead>
+            <tr>
+                <th>租房名称</th>
+                <th>价格</th>
+                <th>发布时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tenement in tenements %}
+                  <tr>
+                    <td><a href="{{ url_for('tenement_item_check',tenement_id=tenement.id ) }}">{{ tenement.flat_name }}</a></td>
+                    <td>{{ tenement.price }}</td>
+                    <td>{{ tenement.create_time }}</td>
+                    <td>
+                        <span><a href="{{ url_for('tenement_item_modify',tenement_id=tenement.id )}}"  class="modify">修改</a></span>
+                        <span><a href="{{ url_for('tenement_item_moveOut',tenement_id=tenement.id, src="current") }}" class="move_out1" onclick="alert('项目已成功移入当前租房信息中！')">移出</a></span>
+                    </td>
+                  </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center">
+        {% import "tenement_macros_current.html" as macros %}
+        <div class="pagination" style="margin: 10px">
+            {{ macros.pagination_widget(pagination,'.index') }}
+        </div>
+    </div>
+{% endblock %}

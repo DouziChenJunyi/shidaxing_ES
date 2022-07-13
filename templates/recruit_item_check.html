@@ -1,0 +1,37 @@
+{% extends 'module_item_recruit.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_module.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_tenement.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/check_item.css') }}">
+{% endblock %}
+
+{% block li3 %}
+    {% if recruit.hasMoveIn %}
+         class="active"
+    {% endif %}
+{% endblock %}
+
+{% block li4 %}
+    {% if recruit.hasMoveIn == False %}
+         class="active"
+    {% endif %}
+{% endblock %}
+
+
+{% block back %}
+    {% if recruit.hasMoveIn %}
+        <a href="{{ url_for('recruit_info_current') }}">〈 返回</a>
+    {% else %}
+        <a href="{{ url_for('recruit_info_history') }}">〈 返回</a>
+    {% endif %}
+{% endblock %}
+
+{% block state1 %}disabled{% endblock %}
+{% block state2 %}disabled{% endblock %}
+{% block state3 %}disabled{% endblock %}
+{% block state4 %}disabled{% endblock %}
+{% block state5 %}disabled{% endblock %}
+{% block state6 %}disabled{% endblock %}
+{% block state7 %}disabled{% endblock %}
+{% block state8 %}disabled{% endblock %}

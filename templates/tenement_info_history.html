@@ -1,0 +1,44 @@
+{% extends 'tenement_select_history.html' %}
+
+{% block title %}历史租房信息{% endblock %}
+
+{% block operation %}历史租房信息{% endblock %}
+{% block delete_or_move_in %}移入{% endblock %}
+
+{% block li2 %}class="active"{% endblock %}
+
+
+{% block table %}
+    <table class="table table-striped">
+        <caption>租房信息——已存档</caption>
+        <thead>
+            <tr>
+                <th>租房名称</th>
+                <th>价格</th>
+                <th>发布时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tenement in tenements %}
+                  <tr>
+                    <td><a href="{{ url_for('tenement_item_check',tenement_id=tenement.id ) }}">{{ tenement.flat_name }}</a></td>
+                    <td>{{ tenement.price }}</td>
+                    <td>{{ tenement.create_time }}</td>
+                    <td>
+                        <span><a href="{{ url_for('tenement_item_modify',tenement_id=tenement.id,src="history" )}}"  class="modify">修改</a></span>
+                        <span><a href="{{ url_for('tenement_item_moveIn',tenement_id=tenement.id ) }}" class="move_out1" onclick="alert('项目已成功移入当前租房信息中！')">移入</a></span>
+                        <span><a href="{{ url_for('tenement_item_delete',tenement_id=tenement.id ) }}" class="delete1"
+                                 onclick="{if(confirm('确定删除吗?请谨慎处理!')){this.document.formname.submit();return true;}return false;}">删除</a></span>
+                    </td>
+                  </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center">
+        {% import "tenement_macros_history.html" as macros %}
+        <div class="pagination" style="margin: 10px">
+            {{ macros.pagination_widget(pagination,'.index') }}
+        </div>
+    </div>
+{% endblock %}

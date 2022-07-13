@@ -1,0 +1,5 @@
+{% extends 'module_select_recruit.html' %}
+
+{% block action %}
+    action="{{ url_for('recruit_select_history',notSelect=False) }}"
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}租房信息-查看{% endblock %}
+{% block operation %}租房信息 〉查看{% endblock %}
+
+{% block back %}<a href="{{ url_for('tenement_select_history') }}">〈 返回</a>{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_module.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_recruit.css') }}">
+{% endblock %}
+
+
+{% block info_form %}
+    <div class="information-form">
+        <form {% block action %}{% endblock %} method="post">
+            <table>
+                <tr class="color_background">
+                    <td>招聘单位</td>
+                    <td>
+                        <input type="text" name="unit" required="required" placeholder="请输入单位名称" maxlength="50" {% block val_unit %}{% endblock %}>
+                        <span class="compulsory_write">*</span>
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>招聘内容</td>
+                    <td>
+                        <input type="text" name="content" required="required" maxlength="100" placeholder="请输入内容" {% block val_content %}{% endblock %}>
+                        <span class="compulsory_write">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>招聘类别</td>
+                    <td>
+                        <select name="category" >
+                            <option value="家教" {% block option_tutor %}{% endblock %}>家教</option>
+                            <option value="店员" {% block option_waitor %}{% endblock %}>店员</option>
+                            <option value="其他" {% block option_other %}{% endblock %}>其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>招聘薪资</td>
+                    <td>
+                        <input type="text" name="pay" required="required" maxlength="100" placeholder="请输入薪资" {% block val_pay %}{% endblock %}>
+                        <span class="compulsory_write">*</span>
+                    </td>
+                </tr>
+
+                <tr class="color_background">
+                    <td>招聘要求</td>
+                    <td>
+                        <input type="text" name="commend" placeholder="请输入要求" maxlength="100" {% block val_commend %}{% endblock %}>
+                        <span class="compulsory_write">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>工作地点</td>
+                    <td>
+                         <input type="text" name="address" required="required" placeholder="请输入工作地点" maxlength="50" {% block val_address %}{% endblock %}>
+                        <span class="compulsory_write">*</span>
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>联系方式</td>
+                    <td>
+                        <input type="text" name="contact" required="required" placeholder="请输入联系方式" maxlength="50" {% block val_contact %}{% endblock %}>
+                        <span class="compulsory_write">*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>备注信息</td>
+                    <td>
+                        <textarea name="remark" id="remark" placeholder="请输入备注信息" maxlength="400" rows="5" cols="30">{% block val_remark %}{% endblock %}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="summit_div">
+                <input type="submit" class="btn_sumit"  value="上传">
+            </div>
+        </form>
+    </div>
+{% endblock %}

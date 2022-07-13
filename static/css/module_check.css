@@ -1,0 +1,136 @@
+/*The sheets of div.check*/
+.information-top{
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    justify-content: space-between;
+}
+ .check form, .select_name{
+    display: flex;
+    flex-direction: row;
+}
+.check form{
+    justify-content: space-between;
+    width: 40%;
+}
+
+span{
+    height: 26px;
+    line-height: 26px;
+}
+
+select{
+    background: rgba(0,0,0,0);
+    width: 75.6px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px #1a1a1a solid;
+    border-radius: 5px;
+}
+option{
+    background: #f9f9f9;
+    line-height: 20px;
+}
+select:focus{
+    border: 2px #ddd solid;
+    box-shadow: 0 0 15px 1px #DDDDDD;
+}
+option:hover{
+    background: #EBCCD1;
+}
+
+
+.select_price{
+    width: 140px;
+}
+.select_name{
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn_check, .btn_add, .btn_delete{
+    display: inline-block;
+    width: 65px;
+    height: 26px;
+    color: white;
+    border: 0px;
+    font-size: 12px;
+    background: #e60039 url("../images/btn_check.png") no-repeat 10px 5.5px ;
+    background-size: 14px 14px;
+    text-indent: 14px;
+}
+
+
+
+/*The sheets of div.btn_add_n_delete*/
+.btn_add{
+    background: #e60039 url("../images/btn_add.png") no-repeat 10px 5.5px;
+    background-size: 14px 14px;
+}
+.btn_delete{
+    background: #e60039 url("../images/btn_delete2.png") no-repeat 10px 5.5px;
+    background-size: 14px 14px;
+    float: right;
+    overflow: hidden;
+}
+
+.btn_add a:link, .btn_add a:visited{
+    color: white;
+}
+
+/*The sheets of information*/
+.information{
+    width: 100%;
+    color: black;
+}
+caption{
+    text-align: center;
+    font-size: 18px;
+    font-weight:bold;
+    color: black;
+}
+
+
+
+
+tr{
+    width: 100%;
+}
+td{
+    width: 20%;
+}
+tr th,td{
+    text-align: center;
+}
+.modify{
+    display: inline-block;
+    background: url("../images/modify.png") no-repeat left;
+    background-size: 12px 12px;
+    text-indent: 15px;
+    margin-right: 10px;
+}
+.move_out1{
+    display: inline-block;
+    background: url("../images/move_out3.png") no-repeat left;
+    background-size: 12px 12px;
+    text-indent: 15px;
+}
+.delete1{
+    display: inline-block;
+    background: url("../images/delete.png") no-repeat left;
+     background-size: 12px 12px;
+    text-indent: 15px;
+}
+
+
+
+.modify:link, .modify:visited{
+    color: #5ABEDE;
+}
+.move_out1:link, .move_out1:visited{
+    color: #62ef62;
+}
+.delete1:link, .delete1:visited{
+    color: #D81E06;
+}

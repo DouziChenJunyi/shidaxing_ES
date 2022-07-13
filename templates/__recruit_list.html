@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scale=no">
+    <title>兼职招聘</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/__recruit_list.css') }}">
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width/18 + 'px';
+        })();
+    </script>
+</head>
+<body>
+    <div class="alert"><span>请谨慎选择招聘，提防不法分子的非法行为</span></div>
+    <div class="navigator">
+        <a href="{{ url_for('__recruit_list_all') }}"><div class="nav-item {% block isActive1 %}{% endblock %}"><span>全部</span></div></a>
+        <a href="{{ url_for('__recruit_list_tutor') }}"><div class="nav-item {% block isActive2 %}{% endblock %}"><span>家教</span></div></a>
+        <a href="{{ url_for('__recruit_list_waitor') }}"><div class="nav-item {% block isActive3 %}{% endblock %}"><span>店员</span></div></a>
+        <a href="{{ url_for('__recruit_list_other') }}"><div class="nav-item {% block isActive4 %}{% endblock %}"><span>其他</span></div></a>
+    </div>
+    <div class="container">
+        {% for recruit in recruits %}
+            <div class="item">
+                <div class="item-header">
+                    <span>{{ recruit.unit }}</span>
+                </div>
+                <div class="lauch-time">
+                    <span class="tuple">发布时间</span>
+                    <span>{{ recruit.create_time }}</span>
+                </div>
+                <div class="command">
+                    <span class="tuple">要求</span>
+                    <span class="command-content">{{ recruit.commend }}</span>
+                </div>
+                <div class="payment">
+                    <span class="tuple">报酬</span>
+                    <span >{{ recruit.pay }}</span>
+                </div>
+                <div class="loaction">
+                    <div class="location-name">
+                        <span class="tuple">地址</span>
+                        <span>{{ recruit.address }}</span>
+                    </div>
+                    <span class="daohang">
+                        <a href="#">地图/导航 </a>››
+                    </span>
+                </div>
+                <div class="contact">
+                    <span class="tuple">联系方式</span>
+                    <span>{{ recruit.contact }}</span>
+                </div>
+
+                {% if recruit.remark %}
+                    <div class="remark">
+                        <span class="tuple">备注</span>
+                        <span class="remark-content">{{ recruit.remark }}</span>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="bottom"></div>
+
+
+    </div>
+
+
+
+</body>
+</html>

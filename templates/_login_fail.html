@@ -1,0 +1,17 @@
+{% extends '_window.html' %}
+{% block title %}登录{% endblock %}
+{% block operation %}登录{% endblock %}
+{% block window_content %}
+    <form action="" style="width: 355px">
+        <h1 >管理员登录</h1>
+        <p style="text-align: left;text-indent: 30px">你输入的账户名或密码不正确，原因可能是：</p>
+        <p style="text-align: left;text-indent: 30px">1.账号名输入有误</p>
+        <p style="text-align: left;text-indent: 30px">2.忘记密码</p>
+        <p style="text-align: left;text-indent: 30px">3.未区分字母大小写</p>
+        <p style="text-align: left;text-indent: 30px">4.未开启小键盘</p>
+        <p style="text-align: left;text-indent: 30px">5.帐户名未申请</p>
+        <div style="width: 300px">
+            <a href="{{ url_for('login') }}" style="display: inline-block"><input type="button" value="返回"  class="btn btn-primary" id="js-btn-login" style="display: inline-block;height: 40px"/></a>
+        </div>
+    </form>
+{% endblock %}

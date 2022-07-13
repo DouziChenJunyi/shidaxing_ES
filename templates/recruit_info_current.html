@@ -1,0 +1,56 @@
+{% extends 'recruit_select_current.html' %}
+
+{% block title %}兼职招聘信息{% endblock %}
+{% block operation %}兼职招聘信息{% endblock %}
+
+
+{% block li3%}class="active"{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recruit_info_module.css') }}">
+{% endblock %}
+
+
+{% block btn_add %}
+    <a href="{{ url_for('recruit_table_create') }}"><button class="btn_add">新建</button></a>
+{% endblock %}
+
+{% block delete_or_move_in %}删除{% endblock %}
+
+{% block table %}
+    <table class="table table-striped">
+        <caption>兼职信息——已发布</caption>
+        <thead>
+            <tr>
+                <th>招聘单位</th>
+                <th>联系方式</th>
+                <th>类别</th>
+                <th>发布时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recruit in recruits %}
+                <tr>
+                    <td><a href="{{ url_for('recruit_item_check',recruit_id=recruit.id ) }}">{{ recruit.unit }}</a></td>
+                    <td>{{ recruit.contact }}</td>
+                    <td>{{ recruit.category }}</td>
+                    <td>{{ recruit.create_time }}</td>
+                    <td>
+                        <span><a href="{{ url_for('recruit_item_modify',recruit_id=recruit.id) }}" class="modify">修改</a></span>
+                        <span><a href="{{ url_for('recruit_item_moveOut',recruit_id=recruit.id) }}" class="move_out1">移出</a></span>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center">
+        {% import "recruit_macros_current.html" as macros %}
+        <div class="pagination" style="margin: 10px">
+            {{ macros.pagination_widget(pagination,'.index') }}
+        </div>
+    </div>
+{% endblock %}
+
+
+

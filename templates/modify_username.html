@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}管理员操作—用户名修改{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login_register.css') }}">
+{% endblock %}
+
+{% block operation %}管理员用户名修改{% endblock %}
+
+{% block info_form %}
+    <div class="container">
+        <section id="content">
+            <form action="{{ url_for('modify_username',user_id=user.id)}}" method="post">
+                <h1>用户名修改</h1>
+                <div>
+                    <input type="text" value="当前用户名 {{ user.username }}" disabled/>
+                </div>
+                <div>
+                    <input type="text" placeholder="新用户名" name="username" />
+                </div>
+                <div>
+                    <input type="password" placeholder="密码验证" name="password" />
+                </div>
+                 <div class="">
+                    <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
+                 </div>
+                <div>
+                    <div style="width: 300px">
+                    <input type="submit" value="更改"  class="btn btn-primary" id="js-btn-login" style="display: inline-block;margin-left:
+120px;height: 40px"/>
+                </div>
+                </div>
+            </form><!-- form -->
+        </section><!-- content -->
+    </div>
+{% endblock %}

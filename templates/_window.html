@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login_register.css') }}">
+{% endblock %}
+
+
+{% block info_form %}
+    <div class="container">
+        <section id="content">
+            <div class="window">
+                {% block window_content %}
+                {% endblock %}
+            </div>
+        </section><!-- content -->
+    </div>
+{% endblock %}

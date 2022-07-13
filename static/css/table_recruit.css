@@ -1,0 +1,7 @@
+td:nth-child(2){
+    padding: 10px;
+}
+#remark{
+    resize: none;
+    width: 600px;
+}

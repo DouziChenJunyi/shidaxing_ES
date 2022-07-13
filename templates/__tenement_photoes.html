@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scale=no">
+    <title>公寓图片</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/__tenement_photoes.css') }}">
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width/18 + 'px';
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="data">
+                {% if tenement.image1 == "none" %}
+                    <img src="{{ url_for('static',filename="images/bootom.png") }}" alt="" >
+                {% else %}
+                    <img src="{{ url_for('static',filename="upload_images/"+tenement.image1) }}" alt="" >
+                {% endif %}
+            </div>
+            <div class="data">
+                <img src="{{ url_for('static',filename="upload_images/"+tenement.image2) }}" alt="" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="data">
+                <img src="{{ url_for('static',filename="upload_images/"+tenement.image3) }}" alt="" >
+            </div>
+            <div class="data">
+                <img src="{{ url_for('static',filename="upload_images/"+tenement.image4) }}" alt="" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="data">
+                <img src="{{ url_for('static',filename="upload_images/"+tenement.image5) }}" alt="" >
+            </div>
+            <div class="data">
+                <img src="{{ url_for('static',filename="upload_images/"+tenement.image6) }}" alt="" >
+            </div>
+        </div>
+    </div>
+</body>
+</html>

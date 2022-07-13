@@ -1,0 +1,140 @@
+{% extends 'module_createTable_modifyItem_tenement.html' %}
+
+{% block title %}租房信息-修改{% endblock %}
+{% block operation %}租房信息 〉修改{% endblock %}
+
+{% block li1 %}
+    {% if tenement.hasMoveIn %}
+         class="active"
+    {% endif %}
+{% endblock %}
+
+{% block li2 %}
+    {% if tenement.hasMoveIn == False %}
+         class="active"
+    {% endif %}
+{% endblock %}
+
+{% block back %}
+    {% if tenement.hasMoveIn %}
+        <a href="{{ url_for('tenement_select_current') }}">〈 返回</a>
+    {% else %}
+        <a href="{{ url_for('tenement_select_history') }}">〈 返回</a>
+    {% endif %}
+{% endblock %}
+
+{% block action %}
+    action="{{ url_for('tenement_item_modify',tenement_id = tenement.id) }}"
+{% endblock %}
+
+{% block kitchen_checked %}
+    {% if tenement.kitchen == "True" %}
+        checked = "checked"
+    {% endif %}
+{% endblock %}
+{% block window_checked %}
+    {% if tenement.window == "True" %}
+        checked = "checked"
+    {% endif %}
+{% endblock %}
+{% block lift_checked %}
+    {% if tenement.lift == "True" %}
+        checked = "checked"
+    {% endif %}
+{% endblock %}
+
+
+{% block val_flat_name %}
+    value="{{ tenement.flat_name }}"
+{% endblock %}
+{% block val_flat_id %}
+    value="{{ tenement.flat_id }}"
+{% endblock %}
+{% block val_room_count %}
+    value="{{ tenement.room_count }}"
+{% endblock %}
+{% block val_bathroom_count %}
+    value="{{ tenement.bathroom_count }}"
+{% endblock %}
+{% block val_kitchen_count %}
+    value="{{ tenement.kitchen_count }}"
+{% endblock %}
+{% block option1 %}
+    {% if  tenement.price == "300-450" %}
+        selected
+    {% endif %}
+{% endblock %}
+{% block option2 %}
+    {% if  tenement.price == "450-700" %}
+        selected
+    {% endif %}
+{% endblock %}
+{% block option3 %}
+    {% if  tenement.price == "700+" %}
+        selected
+    {% endif %}
+{% endblock %}
+{% block val_deposit %}
+    value="{{ tenement.deposit }}"
+{% endblock %}
+{% block val_telephone1 %}
+    value="{{ tenement.telephone1 }}"
+{% endblock %}
+{% block val_telephone2 %}
+    value="{{ tenement.telephone2 }}"
+{% endblock %}
+{% block val_address %}
+    value="{{ tenement.address }}"
+{% endblock %}
+
+{% block val_remark %}{{ tenement.remark }}{% endblock %}
+
+{% block image1 %}
+    {% if tenement.image1 == 'none' %}
+        {{ url_for('static', filename= './images/bootom.png')}}
+{#         {{ url_for('static', filename= 'images/bootom.png')}}#}
+    {% else %}
+        {{ url_for('static', filename= './upload_images/'+ tenement.image1) }}
+    {% endif %}
+
+{% endblock %}
+{% block image2 %}
+    {% if tenement.image1 == 'none' %}
+        {{ url_for('static', filename= './images/bootom.png')}}
+    {% else %}
+        {{ url_for('static', filename= './upload_images/'+ tenement.image2) }}
+    {% endif %}
+
+{% endblock %}
+{% block image3 %}
+    {% if tenement.image1 == 'none' %}
+            {{ url_for('static', filename= './images/bootom.png')}}
+    {% else %}
+        {{ url_for('static', filename= './upload_images/'+ tenement.image3) }}
+    {% endif %}
+{% endblock %}
+{% block image4 %}
+    {% if tenement.image1 == 'none' %}
+        {{ url_for('static', filename= './images/bootom.png')}}
+    {% else %}
+        {{ url_for('static', filename= './upload_images/'+ tenement.image4) }}
+    {% endif %}
+{% endblock %}
+{% block image5 %}
+    {% if tenement.image1 == 'none' %}
+        {{ url_for('static', filename= './images/bootom.png')}}
+    {% else %}
+        {{ url_for('static', filename= './upload_images/'+ tenement.image5) }}
+    {% endif %}
+{% endblock %}
+{% block image6 %}
+    {% if tenement.image1 == 'none' %}
+        {{ url_for('static', filename= './images/bootom.png')}}
+    {% else %}
+        {{ url_for('static', filename= './upload_images/'+ tenement.image6) }}
+    {% endif %}
+{% endblock %}
+
+
+
+

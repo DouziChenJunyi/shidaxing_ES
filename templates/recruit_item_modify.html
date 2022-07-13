@@ -1,0 +1,70 @@
+{% extends 'module_createTable_modifyItem_recruit.html' %}
+
+{% block title %}兼职信息-新建{% endblock %}
+{% block operation %}兼职信息 〉新建{% endblock %}
+
+{% block li3 %}
+    {% if recruit.hasMoveIn %}
+         class="active"
+    {% endif %}
+{% endblock %}
+
+{% block li4 %}
+    {% if recruit.hasMoveIn == False %}
+         class="active"
+    {% endif %}
+{% endblock %}
+
+
+{% block back %}
+    {% if recruit.hasMoveIn %}
+        <a href="{{ url_for('recruit_info_current') }}">〈 返回</a>
+    {% else %}
+        <a href="{{ url_for('recruit_info_history') }}">〈 返回</a>
+    {% endif %}
+{% endblock %}
+
+
+{% block val_unit %}
+    value = {{ recruit.unit }}
+{% endblock %}
+
+{% block val_content %}
+    value = {{ recruit.content }}
+{% endblock %}
+
+{% block option_tutor %}
+    {% if recruit.category == "家教" %}
+        selected
+    {% endif %}
+{% endblock %}
+
+{% block option_waitor %}
+    {% if recruit.category == "店员" %}
+        selected
+    {% endif %}
+{% endblock %}
+
+{% block option_other %}
+    {% if recruit.category == "其他" %}
+        selected
+    {% endif %}
+{% endblock %}
+
+{% block val_pay %}
+    value = {{ recruit.pay }}
+{% endblock %}
+
+{% block val_commend %}
+    value = {{ recruit.commend }}
+{% endblock %}
+
+{% block val_address %}
+    value = {{ recruit.address }}
+{% endblock %}
+
+{% block val_contact %}
+    value = {{ recruit.contact }}
+{% endblock %}
+
+{% block val_remark %}{{ recruit.remark }}{% endblock %}

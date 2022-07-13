@@ -1,0 +1,5 @@
+{% extends 'module_select_tenement.html' %}
+
+{% block action %}
+    action="{{ url_for('tenement_select_current',notSelect=False) }}"
+{% endblock %}

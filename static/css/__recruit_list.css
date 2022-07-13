@@ -1,0 +1,170 @@
+body{
+    margin:0;
+    padding: 0px 0.35rem;
+}
+body *{
+    -webkit-text-size-adjust: 100%;
+    -webkit-user-select: none;
+}
+a, button, input{
+    -webkit-appearance: none;
+    border-radius: 0px;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+    vertical-align: middle;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+image{
+    vertical-align: middle;
+}
+h3,h4,p{
+    margin: 0px;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+.alert{
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    padding-left: 2%;
+    background: url("../images/alert.png") no-repeat 2% 0.4rem;
+    background-size: 0.6rem,0.6rem;
+    text-indent: 0.7rem;
+    color: #f27437;
+    margin-bottom: 0.08rem;
+}
+.alert span{
+    font-size: 0.65rem;
+}
+
+.navigator{
+    width: 100%;
+    height: 1.4rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navigator span{
+    font-size: 0.75rem;
+}
+.navigator a{
+    display: block;
+    width: 25%;
+}
+.navigator a:link, .navigator a:visited{
+    color: black;
+}
+.nav-item{
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border: solid 1px #DCDDDF;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    text-align: center;
+}
+.nav-item-active{
+    width: 100%;
+     height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.75rem;
+    border: solid 1px #DCDDDF;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+
+.item div{
+    margin-bottom: 0.4rem;
+}
+/*.item span{*/
+    /*height: 0.6rem;*/
+    /*line-height: 0.6rem;*/
+/*}*/
+.item{
+    width: 100%;
+    padding: 2%;
+    margin-top: 0.4rem;
+    box-shadow:0.05rem 0.05rem 0.3rem #aaaaaa;
+    background:  url("../images/linking.png") no-repeat right top;
+    background-size: 1rem,1rem;
+}
+.tuple{
+    display: inline-block;
+    width: 3.8rem;
+    font-size: 0.6rem;
+    padding: 0.03rem;
+    border: solid 0.006rem #F5F5F5;
+    text-align: center;
+}
+.item-header{
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding-left: 1%;
+}
+.lauch-time{
+    font-size: 0.6rem;
+    color: #00AACE;
+}
+.command,.payment{
+    display: flex;
+    flex-direction: row;
+    font-size: 0.6rem;
+    justify-content:flex-start;
+}
+.location{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.location-name,.contact,.remark{
+    font-size: 0.6rem;
+}
+.command{
+    color: #f27437;
+}
+.command .tuple{
+    display: inline-block;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+
+.daohang{
+    display: inline-block;
+    float: right;
+    width: 6rem;
+    font-size: 0.6rem;
+}
+.daohang a:visited, .daohang a:link{
+    color: #00AACE;
+}
+.remark{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.remark-content{
+    width: 75%;
+    display: block;
+}
+.bottom{
+    width: 100%;
+    height: 2rem;
+    background: url("../images/bootom.png") no-repeat center;
+    background-size: 4rem,4rem;
+}

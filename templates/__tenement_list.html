@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scale=no">
+    <title>租房信息</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/__tenement_list.css') }}">
+    <script>
+        (function () {
+            var html = document.documentElement;
+            var width = html.getBoundingClientRect().width;
+            html.style.fontSize = width/18 + 'px';
+        })();
+    </script>
+</head>
+<body>
+    <div class="header">
+        <span class="header_left">价格</span>
+        <div class="header_right">
+            <div class="price_select">
+                <a href="{{ url_for('__tenement_list_low') }}" ><span class="price_select_item {% block isActive1 %}{% endblock %}">300-450</span></a>
+                <a href="{{ url_for('__tenement_list_middle') }}"><span class="price_select_item {% block isActive2 %}{% endblock %}">450-700</span></a>
+                <a href="{{ url_for('__tenement_list_high') }}"><span class="price_select_item {% block isActive3 %}{% endblock %}">700及以上</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for tenement in tenements %}
+            <a href="{{ url_for('__tenement_detail',tenement_id=tenement.id) }}"><div class="item">
+                <div class="item-left clearfix">
+                    <img src="{{ url_for('static',filename="upload_images/"+tenement.image1) }}" alt="" >
+                </div>
+                <div class="item-right clearfix">
+                    <div class="item-header">
+                        <div class="name">{{ tenement.flat_name }}</div>
+                        <div class="price" >房租:￥{{ tenement.deposit }}</div>
+                    </div>
+                    <div class="eq" >
+                        <div class="eq-item">
+                            {{ tenement.room_count }}室{{ tenement.bathroom_count }}卫
+                            {{ tenement.livingroom_count }}厅{{ tenement.kitchen_count }}厨
+                        </div>
+                        {% if tenement.kitchen_count != 0%}
+                            <div class="eq-item">厨房</div>
+                        {% endif %}
+                    </div>
+                    <div class="telephone">{{ tenement.telephone1 }}</div>
+                    {% if tenement.telephone2 %}
+                         </span><div class="telephone">{{ tenement.telephone2 }}</div>
+                    {% endif %}
+
+                    <div class="location"><span class="avatar">
+                        <span class="address">{{ tenement.address }}</span>
+                    </div>
+                </div>
+            </div></a>
+        {% endfor %}
+    </div>
+</body>
+</html>

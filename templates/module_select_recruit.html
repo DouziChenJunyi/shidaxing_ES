@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/module_check.css') }}">
+    {% block link %}{% endblock %}
+{% endblock %}
+
+{% block back %}{% endblock%}
+{% block operation %}{% endblock%}
+
+
+{% block info_form %}
+    <div class="information-top">
+        <div class="check">
+            <form {% block action %}{% endblock %} method="post">
+                 <div class="select_price">
+                     <span>职业类别</span>
+                     <select name="category" >
+                        <option value="all">不限</option>
+                        <option value="家教">家教 </option>
+                        <option value="店员">店员 </option>
+                        <option value="其他">其他 </option>
+                     </select>
+                 </div>
+                 <div class="unit">
+                     <span>招聘单位</span>
+                     <input type="text" name="unit">
+                 </div>
+                 <button class="btn_check">查询</button>
+            </form>
+        </div>
+        <div class="btn_add_n_delete">
+            {% block btn_add %}{% endblock %}
+        </div>
+    </div>
+    <div class="information">
+        {% block table %}{%  endblock %}
+    </div>
+{% endblock %}
+

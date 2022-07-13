@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_module.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_tenement.css') }}">
+    <script>
+    function fileReader1(obj){
+        var file = obj.files;
+        var img1 = document.getElementById("img1");
+         var reader = new FileReader();// 操作图片
+        if(/image/.test(file[0].type)){
+        reader.readAsDataURL(file[0]);
+        }else {
+        alert('请选择图片!');
+        obj.value = "";
+        return;
+         }
+         // 图片加载错误
+        reader.onerror = function(){
+        document.write("图片加载错误");
+        }
+        // 图片加载完成
+        reader.onload = function(){
+        img1.src = reader.result;
+        }
+     }
+    function fileReader2(obj){
+        var file = obj.files;
+        var img2 = document.getElementById("img2");
+         var reader = new FileReader();// 操作图片
+        if(/image/.test(file[0].type)){
+        reader.readAsDataURL(file[0]);
+        }else {
+        alert('请选择图片!');
+        obj.value = "";
+        return;
+         }
+         // 图片加载错误
+        reader.onerror = function(){
+        document.write("图片加载错误");
+        }
+        // 图片加载完成
+        reader.onload = function(){
+        img2.src = reader.result;
+        }
+     }
+    function fileReader3(obj){
+        var file = obj.files;
+        var img3 = document.getElementById("img3");
+         var reader = new FileReader();// 操作图片
+        if(/image/.test(file[0].type)){
+        reader.readAsDataURL(file[0]);
+        }else {
+        alert('请选择图片!');
+        obj.value = "";
+        return;
+         }
+         // 图片加载错误
+        reader.onerror = function(){
+        document.write("图片加载错误");
+        }
+        // 图片加载完成
+        reader.onload = function(){
+        img3.src = reader.result;
+        }
+     }
+    function fileReader4(obj){
+        var file = obj.files;
+        var img4 = document.getElementById("img4");
+         var reader = new FileReader();// 操作图片
+        if(/image/.test(file[0].type)){
+        reader.readAsDataURL(file[0]);
+        }else {
+        alert('请选择图片!');
+        obj.value = "";
+        return;
+         }
+         // 图片加载错误
+        reader.onerror = function(){
+        document.write("图片加载错误");
+        }
+        // 图片加载完成
+        reader.onload = function(){
+        img4.src = reader.result;
+        }
+     }
+    function fileReader5(obj){
+        var file = obj.files;
+        var img3 = document.getElementById("img5");
+         var reader = new FileReader();// 操作图片
+        if(/image/.test(file[0].type)){
+        reader.readAsDataURL(file[0]);
+        }else {
+        alert('请选择图片!');
+        obj.value = "";
+        return;
+         }
+         // 图片加载错误
+        reader.onerror = function(){
+        document.write("图片加载错误");
+        }
+        // 图片加载完成
+        reader.onload = function(){
+        img5.src = reader.result;
+        }
+     }
+     function fileReader6(obj){
+        var file = obj.files;
+        var img6 = document.getElementById("img6");
+         var reader = new FileReader();// 操作图片
+        if(/image/.test(file[0].type)){
+        reader.readAsDataURL(file[0]);
+        }else {
+        alert('请选择图片!');
+        obj.value = "";
+        return;
+         }
+         // 图片加载错误
+        reader.onerror = function(){
+        document.write("图片加载错误");
+        }
+        // 图片加载完成
+        reader.onload = function(){
+        img6.src = reader.result;
+        }
+     }
+    </script>
+{% endblock %}
+
+{% block back %}〈 返回{% endblock %}
+
+{% block info_form %}
+    <div class="information-form">
+        <form {% block action %}{% endblock %} enctype='multipart/form-data'  method="post" name="tenement_form">
+            <table>
+                <tr>
+                    <td>公寓名称</td>
+                    <td>
+                        <input type="text" name="flat_name" id="flat_name" required="required" {% block flat_name_placeholder %}{% endblock %} {% block val_flat_name %} {% endblock %}>
+                        <span class="compulsory_write">*[必填]</span>
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>公寓ID</td>
+                    <td>
+                        <input type="text" name="flat_id" id="flat_id"  {% block flat_id_placeholder %}{% endblock %} {% block val_flat_id %} {% endblock %}>
+                    </td>
+                </tr>
+                <tr>
+                    <td>公寓类型</td>
+                    <td>
+                        <div class="equipment_count">
+                            <input type="text" name="room_count" id="room_count"  required="required"
+                                    {% block room_count_placeholder %}{% endblock %} {% block val_room_count %}{% endblock %} >
+                            <span>室</span>
+                            <span class="compulsory_write">*[必填]</span>
+                            <input type="text" name="bathroom_count" id="bathroom_count" required="required"
+                                    {% block bathroom_count_placeholder %}{% endblock %} {% block val_bathroom_count %}{% endblock %}>
+                            <span >卫</span>
+                            <span class="compulsory_write">*[必填]</span>
+                            <input type="text" name="kitchen_count" id="kitchen_count"
+                                    {% block kitchen_count_placeholder  %}{% endblock %} {% block val_kitchen_count %}{% endblock %} >
+                            <span>厨</span>
+                            <input type="text" name="livingroom_count" id="livingroom_count"
+                                        {% block livingroom_count_placeholder  %}{% endblock %} {% block val_livingroom_count %}{% endblock %} >
+                            <span>厅</span>
+                            <span>（例如：1室1卫，1室1卫1厨）</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>商品价格</td>
+                    <td>
+                        <select name="price" id="">
+                            <option value="300-450" {% block option1 %}{% endblock %}>300-450</option>
+                            <option value="450-700" {% block option2 %}{% endblock %}>450-700</option>
+                            <option value="700+" {% block option3 %}{% endblock %}>700以上</option>
+                        </select>
+                        <span>元/月</span>
+                        <span >押金：</span>
+                        <input type="text" name="deposit" id="deposit" required="required" {% block deposit_placeholder %}{% endblock %} {% block val_deposit %}{% endblock %}>
+                        <span >元/月</span>
+                        <span class="compulsory_write">*[必填]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>联系电话</td>
+                    <td>
+                        <input type="text" name="telephone1" id="telephone1" required="required" {% block telephone1_placeholder %}{% endblock %}
+                                {% block val_telephone1 %}{% endblock %}>
+                        <span class="compulsory_write">*[必填]</span>
+                        <span> / </span>
+                        <input type="text" name="telephone2" {% block telephone2_placeholder %}{% endblock %} {% block val_telephone2 %}{% endblock %}>
+
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>居住地址</td>
+                    <td>
+                        <div class="telephone">
+                            <input type="text" name="address" required="required" maxlength="100"
+                                    {% block address_placeholder %}{% endblock %} {% block val_address %}{% endblock %}>
+                            <span class="compulsory_write">*[必填]</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>房间图片</td>
+                    <td>
+                         <div class="form-group" style="margin: 0px;display: inline-block;width: 14%">
+                            <label for="exampleInputFile">图片1</label>
+                            <input type="file" name="file1" onchange="fileReader1(this)">
+                            <img id="img1" src="{% block image1 %}{% endblock %}" style="display: inline-block" width="45px" height="45px"/>
+                          </div>
+                        <div class="form-group" style="margin: 0px;display: inline-block;width: 14%">
+                            <label for="exampleInputFile">图片2</label>
+                            <input type="file" name="file2" onchange="fileReader2(this)">
+                            <img id="img2" src="{% block image2 %}{% endblock %}" style="display: inline-block" width="45px" height="45px"/>
+                          </div>
+                        <div class="form-group" style="margin: 0px;display: inline-block;width: 14%">
+                            <label for="exampleInputFile">图片3</label>
+                            <input type="file" name="file3" onchange="fileReader3(this)">
+                            <img id="img3" src="{% block image3 %}{% endblock %}" style="display: inline-block" width="45px" height="45px"/>
+                          </div>
+                        <div class="form-group" style="margin: 0px;display: inline-block;width: 14%">
+                            <label for="exampleInputFile">图片4</label>
+                            <input type="file" name="file4" onchange="fileReader4(this)">
+                            <img id="img4" src="{% block image4 %}{% endblock %}" style="display: inline-block" width="45px" height="45px"/>
+                          </div>
+                        <div class="form-group" style="margin: 0px;display: inline-block;width: 14%">
+                            <label for="exampleInputFile">图片5</label>
+                            <input type="file" name="file5" onchange="fileReader5(this)">
+                            <img id="img5" src="{% block image5 %}{% endblock %}" style="display: inline-block" width="45px" height="45px"/>
+                          </div>
+                        <div class="form-group" style="margin: 0px;display: inline-block;width: 14%">
+                            <label for="exampleInputFile">图片6</label>
+                            <input type="file" name="file6" onchange="fileReader6(this)">
+                            <img id="img6" src="{% block image6 %}{% endblock %}" style="display: inline-block" width="45px" height="45px"/>
+                          </div>
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>房间配置</td>
+                    <td>
+                        <div class="tenement_eq_items">
+                            <div class="tenement_eq_items">
+                                <label><input type="checkbox" name="kitchen" value="kitchen" {% block kitchen_checked %}{% endblock %}><span>厨房</span></label>
+                                <label><input type="checkbox" name="window" value="window" {% block window_checked %}{% endblock %}><span>落地窗</span></label>
+                                <label><input type="checkbox" name="lift" value="lift" {% block lift_checked %}{% endblock %}><span>电梯</span></label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>房间简介</td>
+                    <td>
+                        <textarea name="remark" id="remark" class="remark"   rows="10" cols="50" style="resize: none"
+                                {% block remark_placeholder %}{% endblock %} >{% block val_remark %}{% endblock %}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="summit_div">
+{#                <button class="btn_sumit"><a href="#">上传</a></button>#}
+                <input type="submit" class="btn_sumit"  value="上传">
+            </div>
+        </form>
+    </div>
+{% endblock %}

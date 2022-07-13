@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}兼职招聘信息-查看{% endblock %}
+{% block operation %}兼职招聘信息 〉查看{% endblock %}
+
+{% block back %}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_module.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/table_recruit.css') }}">
+{% endblock %}
+
+{% block info_form %}
+    <div class="information-form">
+        <form action="#" method="post">
+            <table>
+                <tr class="color_background">
+                    <td>招聘单位</td>
+                    <td>
+                        <input type="text" name="unit" {% block state1 %} {% endblock %} value="{{ recruit.unit}}">
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>招聘内容</td>
+                    <td>
+                        <input type="text" name="content" {% block state2 %} {% endblock %} value="{{ recruit.content}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>招聘类别</td>
+                    <td>
+                        <select name="category" id="" {% block state3 %} {% endblock %} value="recruit.content">
+                            <option value="家教">家教</option>
+                            <option value="店员">店员</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>招聘薪资</td>
+                    <td>
+                        <input type="text" name="pay" {% block state4 %} {% endblock %} value="{{ recruit.pay }}">
+                    </td>
+                </tr>
+
+                <tr class="color_background">
+                    <td>招聘要求</td>
+                    <td>
+                        <input type="text" name="commend" {% block state5 %} {% endblock %} value="{{ recruit.commend }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>工作地点</td>
+                    <td>
+                         <input type="text" name="address" {% block state6 %} {% endblock %} value="{{ recruit.address }}">
+                    </td>
+                </tr>
+                <tr class="color_background">
+                    <td>联系方式</td>
+                    <td>
+                        <input type="text" name="contact" {% block state7 %} {% endblock %} value="{{ recruit.contact }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>备注信息</td>
+                    <td>
+                        <textarea name="remark" id="remark"   rows="5" cols="30" {% block state8 %} {% endblock %}>{{ recruit.remark }}</textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="summit_div">
+                <input type="submit" class="btn_sumit" onclick="alert('兼职招聘信息创建成功！')" value="上传">
+            </div>
+        </form>
+    </div>
+{% endblock %}

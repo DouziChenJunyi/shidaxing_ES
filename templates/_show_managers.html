@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}查看—管理员信息{% endblock %}
+{% block operation %}查看—管理员信息{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/module_check.css') }}">
+    {% block link %}{% endblock %}
+{% endblock %}
+
+{% block back %}
+    <a href="{{ url_for('tenement_select_current') }}">〈 返回</a>
+{% endblock%}
+
+
+{% block info_form %}
+    <div class="information">
+        {% block table %}
+            <table class="table table-striped">
+                <caption>管理员账号信息</caption>
+                <thead>
+                    <tr>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                          <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.password }}</td>
+                            <td>{{ user.create_time }}</td>
+                            <td>
+                                {% if user.username != boss.username %}
+                                    <span><a href="{{ url_for('_managers_delete',user_id=user.id ) }}" class="delete1"
+                                         onclick="{if(confirm('确定删除吗?请谨慎处理!')){this.document.formname.submit();return true;}return false;}">删除</a></span>
+                                {% endif %}
+
+                            </td>
+                          </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div style="text-align: center">
+                {% import "_show_managers_macros.html" as macros %}
+                <div class="pagination" style="margin: 10px">
+                    {{ macros.pagination_widget(pagination,'.index') }}
+                </div>
+            </div>
+                {%  endblock %}
+            </div>
+        {% endblock %}

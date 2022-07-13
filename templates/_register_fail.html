@@ -1,0 +1,23 @@
+{% extends '_window.html' %}
+{% block title %}注册{% endblock %}
+{% block operation %}注册{% endblock %}
+{% block window_content %}
+    <form action="" style="width: 355px">
+        <h1>管理员注册</h1>
+        {% if fail == "username" %}
+            <p style="text-align: left;text-indent: 60px">账号已被注册，请更换账号注册!</p>
+        {% elif fail == "password" %}
+            <p style="text-align: left;text-indent: 60px">两次密码不相同，请保证两次密码输入相同！</p>
+        {% else %}
+            <p style="text-align: left;text-indent: 60px">口令验证失败，请向主管确认口令再注册！</p>
+        {% endif %}
+
+        <br>
+        <p style="text-align: left;text-indent: 60px">1.注意区分字母大小写</p>
+        <p style="text-align: left;text-indent: 60px">2.注意是否开启小键盘</p>
+        <p style="text-align: left;text-indent: 60px">3.谨记登录密码</p>
+        <div style="width: 300px;margin-top: 35px;text-align: right">
+            <a href="{{ url_for('register') }}" style="display: inline-block"><input type="button" value="返回"  class="btn btn-primary" id="js-btn-login" style="display: inline-block;height: 40px"/></a>
+        </div>
+    </form>
+{% endblock %}
